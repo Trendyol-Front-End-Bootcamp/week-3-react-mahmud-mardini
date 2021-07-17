@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
+import NotFound from "../components/NotFound";
 import Filter from "../components/Filter";
 import CharacterList from "../components/CharacterList";
 
@@ -20,17 +21,17 @@ function Home({ apiUrl }) {
   }, [api]);
 
   return (
-    <div>
+    <>
       <Navbar />
       <Filter apiUrl={apiUrl} setApiUrl={setApi} />
       {loading ? (
         <p>Loading..</p>
+      ) : characters.error ? (
+        <NotFound />
       ) : (
-        <>
-          <CharacterList characters={characters.results} />
-        </>
+        <CharacterList characters={characters.results} />
       )}
-    </div>
+    </>
   );
 }
 
