@@ -11,19 +11,32 @@ const App = () => {
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
   const [status, setStatus] = useState('');
+  const BASE_API_URL = `https://rickandmortyapi.com/api/character/`;
 
   useEffect(() => {
-    const fetchItems = async () => {
-      setIsLoading(true)
-      const result = await axios(
-        `https://rickandmortyapi.com/api/character/?name=${name}&gender=${gender}&status=${status}`
-      )
 
+    // fetch characters function
+    const fetchCharacters = async () => {
+      
+      // set loading as true while characters not yet have fetched completely
+      setIsLoading(true);
+
+      // store fetched characters data in result variable  
+      const result = await axios(
+        BASE_API_URL + `?name=${name}&gender=${gender}&status=${status}`
+      );
+
+      // assign results to items
       setItems(result.data.results);
+
+      // stop loading when data fetched successfully
       setIsLoading(false);
     }
 
-    fetchItems()
+    // call fetchCharacters function
+    fetchCharacters();
+
+    // get search variables using 'useEffect'
   }, [name, gender, status]);
 
   return (
@@ -38,6 +51,7 @@ const App = () => {
        />
 
       <CharacterList isLoading={isLoading} characters={items} />
+      
     </div>
   )
 }
