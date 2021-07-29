@@ -5,20 +5,20 @@ const Search = ({ getName, getGender, getStatus }) => {
   const [gender, setGender] = useState('');
   const [status, setStatus] = useState('');
 
-  // search for given name and show text in the input section
+  // search for given name using (getName) and show input text using (setName)
   const onChangeName = (name) => {
     setName(name);
     getName(name);
   }
 
-  // search for gender and show text in the input section
+  // search for slected gender using (getGender) and show selected item using (setGender)
   const onChangeGender = (gender) => {
     setGender(gender);
     getGender(gender);
 
   }
 
-  // search for given status and show text in the input section
+  // search for given status using (getStatus) and show selected item using (setStatus)
   const onChangeStatus = (status) => {
     setStatus(status);
     getStatus(status);

@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 
-// get First seen place (first episode)
-const fetchEpisode = async (episodeUrl) => {
+// get first seen (first episode)
+export const fetchEpisode = async (episodeUrl) => {
   
   const result = await axios.get(episodeUrl[0])
 
