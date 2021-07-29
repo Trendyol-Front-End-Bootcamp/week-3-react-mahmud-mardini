@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import CharacterCard from '../components/characters/CharacterCard';
+import CharacterCard, { fetchEpisode } from '../components/characters/CharacterCard';
 
 const characterData = {
     id: 1,
@@ -17,4 +17,10 @@ it('Character Card Test', () => {
             <CharacterCard character={characterData}/>
     )
     expect(card).toMatchSnapshot();
+});
+
+
+it('should return the name of given episode url', () => {
+    const episodeName =  fetchEpisode('https://rickandmortyapi.com/api/episode/1').toString();
+    expect(episodeName).toBe('Pilot');
 });
