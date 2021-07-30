@@ -1,17 +1,4 @@
 import React from 'react'
-import axios from 'axios'
-
-// get first seen (first episode)
-export const fetchEpisode = async (episodeUrl) => {
-  
-  const result = await axios.get(episodeUrl[0])
-
-  let firstEpisode = result.data.name;
-  
-  console.log(firstEpisode);
-
-  return firstEpisode
-}
 
 // render the character card
 function CharacterCard({ character }) {
@@ -30,15 +17,15 @@ function CharacterCard({ character }) {
           </span>
         </div>
         <div className="section">
-            <span className="text-gray">Last known location:</span>
-            <a href="#">
-                {character.origin.name}
+            <span className="text-gray">Gender:</span>
+            <a className="character-gender" href="#">
+                {character.gender}
             </a>
         </div>
         <div className="section">
-            <span class="text-gray">First seen in:</span>
-            <a href="#">
-                {fetchEpisode(character.episode).toString()/* {character.episode[0].slice(character.episode[0].indexOf("episode"))} */}
+            <span className="text-gray">Last known location:</span>
+            <a className="character-location" href="#">
+                {character.origin.name}
             </a>
         </div>
       </div>
