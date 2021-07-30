@@ -26,19 +26,19 @@ const Search = ({ getName, getGender, getStatus }) => {
   }
 
   return (
-    <section className='search center'>
+    <section className="search center">
       <form>
         
         <input
-          type='text'
-          className='form-control'
-          placeholder='Search characters'
+          type="text"
+          className="form-control"
+          placeholder="Search characters"
           value={name}
           onChange={(e) => onChangeName(e.target.value)}
           autoFocus
         />
         
-        <select name="gender" value={gender} onChange={(e) => onChangeGender(e.target.value)}>
+        <select className="gender-list" name="gender" value={gender} onChange={(e) => onChangeGender(e.target.value)}>
         <option key="" value="">Gender</option>
         <option key="female" value="female">Female</option>
         <option key="male" value="male">Male</option>
@@ -46,7 +46,7 @@ const Search = ({ getName, getGender, getStatus }) => {
         <option key="unknown" value="unknown">Unknown</option>
       </select>
 
-      <select name="status" value={status} onChange={(e) => onChangeStatus(e.target.value)}>
+      <select className="status-list" name="status" value={status} onChange={(e) => onChangeStatus(e.target.value)}>
         <option key="" value="">Status</option>
         <option key="alive" value="alive">Alive</option>
         <option key="dead" value="dead">Dead</option>
