@@ -18,9 +18,3 @@ it('Character Card Test', () => {
     )
     expect(card).toMatchSnapshot();
 });
-
-
-it('should return the name of given episode url', () => {
-    const episodeName =  fetchEpisode('https://rickandmortyapi.com/api/episode/1').toString();
-    expect(episodeName).toBe('Pilot');
-});
